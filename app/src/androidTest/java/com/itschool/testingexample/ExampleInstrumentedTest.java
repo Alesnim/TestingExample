@@ -1,14 +1,12 @@
 package com.itschool.testingexample;
+
 import android.content.Context;
 
-import androidx.lifecycle.Lifecycle;
-import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.IdlingPolicies;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,12 +16,11 @@ import java.util.concurrent.TimeUnit;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -47,8 +44,6 @@ public class ExampleInstrumentedTest {
 
     @Test
     public void checkTextView() {
-       /* IdlingPolicies.setMasterPolicyTimeout(120, TimeUnit.SECONDS);
-        IdlingPolicies.setIdlingResourceTimeout(60, TimeUnit.SECONDS);*/
         onView(withId(R.id.tw_text))
                 .check(matches(withText(R.string.hello)));
     }
@@ -65,9 +60,7 @@ public class ExampleInstrumentedTest {
 
 
     @Test
-    public void checkWork() throws InterruptedException {
-       /* IdlingPolicies.setMasterPolicyTimeout(120, TimeUnit.SECONDS);
-        IdlingPolicies.setIdlingResourceTimeout(60, TimeUnit.SECONDS);*/
+    public void checkWork() {
         onView(withId(R.id.ed_text))
                 .perform(typeText("42"), closeSoftKeyboard());
 
